@@ -1,14 +1,20 @@
 package Bigdata;
 
+import java.util.Scanner;
+
 public class javastudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		
 		vip isv=new vip("부산",15000,"선생님");
 		isv.isvip();
 		isv.makevip();
 		isv.isvip();
-		isv.info();
+		isv.info();		
+		
+		//입력할건지 나갈껀지 검색할건지 -> 고객정보입력 -> vip만들껀지 
 	}
 
 }
