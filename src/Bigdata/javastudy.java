@@ -4,7 +4,9 @@ public class javastudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		vip isv=new vip("何魂",15000,"急积丛",true);
+		vip isv=new vip("何魂",15000,"急积丛");
+		isv.isvip();
+		isv.makevip();
 		isv.isvip();
 		isv.info();
 	}
@@ -32,9 +34,8 @@ class customer{
 
 class vip extends customer{
 	boolean vc=false;
-	public vip(String r,int i,String j,boolean v){
+	public vip(String r,int i,String j){
 		super(r,i,j);
-		vc=v;
 		
 	}
 	public void isvip(){
@@ -45,7 +46,12 @@ class vip extends customer{
 		}
 		
 	}
-	
+	public void makevip(){
+		vc=true;
+	}
+	public void deletevip(){
+		vc=false;
+	}
 	
 }
 
