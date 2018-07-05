@@ -12,10 +12,10 @@ public class Helloworld {
 			int number = scn.nextInt();
 
 			if (number == 1) {
-				System.out.println("ÀÏ");
+				System.out.println("ï¿½ï¿½");
 
 			} else {
-				System.out.println("ÀÌ\nÁ¾·á");
+				System.out.println("ï¿½ï¿½\nï¿½ï¿½ï¿½ï¿½");
 				break;
 			}
 		}

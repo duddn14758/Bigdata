@@ -8,13 +8,13 @@ public class javastudy {
 		// TODO Auto-generated method stub
 		Scanner scn = new Scanner(System.in);
 		
-		vip isv=new vip("ºÎ»ê",15000,"¼±»ý´Ô");
+		vip isv=new vip("ï¿½Î»ï¿½",15000,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		isv.isvip();
 		isv.makevip();
 		isv.isvip();
 		isv.info();		
 		
-		//ÀÔ·ÂÇÒ°ÇÁö ³ª°¥²«Áö °Ë»öÇÒ°ÇÁö -> °í°´Á¤º¸ÀÔ·Â -> vip¸¸µé²«Áö 
+		//ï¿½Ô·ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ -> vipï¿½ï¿½ï¿½é²«ï¿½ï¿½ 
 	}
 
 }
@@ -30,10 +30,10 @@ class customer{
 		job=j;
 	}
 	public void info(){
-		System.out.println("----------°í°´Á¤º¸-----------");
-		System.out.println("Áö¿ª : " +region);
-		System.out.println("¼öÀÔ : " +income);
-		System.out.println("Á÷¾÷ : " +job);
+		System.out.println("----------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-----------");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " +region);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " +income);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " +job);
 	}
 	
 }
@@ -46,9 +46,9 @@ class vip extends customer{
 	}
 	public void isvip(){
 		if(vc==true){
-			System.out.println("vip°í°´ÀÔ´Ï´Ù");
+			System.out.println("vipï¿½ï¿½ï¿½Ô´Ï´ï¿½");
 		}else{
-			System.out.println("vip°í°´ÀÌ ¾Æ´Õ´Ï´Ù");
+			System.out.println("vipï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½");
 		}
 		
 	}

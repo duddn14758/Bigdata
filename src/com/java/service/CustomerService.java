@@ -1,11 +1,13 @@
-package Bigdata;
+package com.java.service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CustomerManager3 {
+import com.java.model.*;
 
-	// 怨좉컼 �젙蹂대�� ���옣�븷 �옄猷뚭뎄議� �꽑�뼵
+
+public class CustomerService {
+
 	static ArrayList<Customer> custList = new ArrayList<>();
 	static ArrayList<vipCustomer> vList=new ArrayList<>();
 
@@ -55,7 +57,7 @@ public class CustomerManager3 {
 			case 'c' :
 				System.out.println("현재 데이터를 출력합니다.");
 				if( (index >= 0) && (index < count)) {
-					printCustomerData(index);
+					print.printCustomerData(custList, index);
 				}else {
 					System.out.println("출력할 데이터가 선택되지 않았습니다.");
 				}
@@ -64,7 +66,7 @@ public class CustomerManager3 {
 				System.out.println("데이터를 수정합니다.");
 				if( (index >= 0) && (index < count)) {
 					System.out.println(index + "번째 데이터를 수정합니다.");
-					updateCustomerData(index);
+					update.updateCustomerData(custList, index);
 				}else {
 					System.out.println("수정할 데이터가 선택되지 않았습니다.");
 				}
@@ -116,7 +118,7 @@ public class CustomerManager3 {
 				
 				case "1" : 
 					if(count>0){
-					MakeVip(index);
+						vipService.MakeVip(custList, vList, index);
 					}else{
 						System.out.println("vip등록할 고객이 존재하지 않습니다");
 					}
@@ -124,7 +126,7 @@ public class CustomerManager3 {
 					
 				case "2" :
 					if(count>0){
-					deleteVip(index);
+						vipService.deleteVip(vList, index);
 					}else{
 						System.out.println("삭제할 vip고객이 존재하지 않습니다");
 					}
@@ -223,35 +225,6 @@ public class CustomerManager3 {
 		System.out.println("검색이 완료되었습니다.");
 
 	}
-	
-	public static void MakeVip(int index){
-		Customer cust = custList.get(index);
-		vipCustomer vcust = new vipCustomer(cust.getName(),cust.getGender(),cust.getEmail(),cust.getBirthYear());
-		vcust.setVip();
-		vList.add(vcust);
-	}
-	public static void deleteVip(int index){
-		vList.get(index).deleteVip();
-		vList.remove(index);
-	}
-
-	// index �쐞移섏쓽 怨좉컼 �젙蹂대�� �닔�젙�빀�땲�떎.
-	public static void updateCustomerData(int index) {
-		Customer cust = custList.get(index);
-		System.out.println("---------UPDATE CUSTOMER INFO----------");
-		System.out.print("이름(" + cust.getName() + ") :");
-		cust.setName(scan.next());
-
-		System.out.print("성별(" + cust.getGender() + ") :");
-		cust.setGender(scan.next().charAt(0));
-
-		System.out.print("이메일(" + cust.getEmail() + ") :");
-		cust.setEmail(scan.next());
-
-		System.out.print("출생년도(" + cust.getBirthYear() + ") :");
-		cust.setBirthYear(scan.nextInt());
-	}
-
 }
 
 	
