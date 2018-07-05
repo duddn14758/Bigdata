@@ -33,5 +33,9 @@ class vipCustomer extends Customer{
 		System.out.println("vip등록되셧습니다");
 		isvip=true;
 	}
+	public void deleteVip(){
+		System.out.println("vip탈퇴되셨습니다");
+		isvip=false;
+	}
 	
 }

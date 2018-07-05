@@ -11,7 +11,7 @@ public class CustomerManager3 {
 
 
 	// 由ъ뒪�듃 �젙蹂대�� 議고쉶�븯湲� �쐞�빐 �씤�뜳�뒪瑜� �븘�슂濡� �븿
-	static int index = 0;
+	static int index = -1;
 	static int vindex=0;
 
 	static int count = 0;// custList.size()
@@ -26,7 +26,7 @@ public class CustomerManager3 {
 			System.out.printf("\n[INFO] 고객 수 : %d, 인덱스 : %d\n", count, index);
 			System.out.println("메뉴를 입력하세요.");
 			System.out.println("(I)nsert, (P)revious, (N)ext, " +
-					"(C)urrent, (U)pdate, (D)elete, (S)earch, (V)ip, (L)ist, (Q)uit");// search 기능 추가
+					"(C)urrent, (U)pdate, (D)elete, (S)earch, (V)ip, (Q)uit");// search 기능 추가
 			System.out.print("메뉴 입력: ");
 			String menu = scan.next();
 			menu = menu.toLowerCase();	//입력한 문자열을 모두소문자로 변환
@@ -108,10 +108,41 @@ public class CustomerManager3 {
 				
 				break;
 			case 'v':
-				MakeVip(index);
-				break;
-			case 'l':
-				viplist();
+				System.out.println("--------vip고객관리--------");
+				System.out.println("사용하고자 하는 실행을 입력하세요.");
+				System.out.println("[1]vip등록, [2]vip삭제, [3]vip고객 list");
+				String act = scan.next();
+				System.out.println("[1]vip등록, [2]vip삭제, [3]vip고객 list");
+
+				switch(act){
+				
+				case "1" : 
+					if(count>0){
+					MakeVip(index);
+					}else{
+						System.out.println("vip등록할 고객이 존재하지 않습니다");
+					}
+					break;
+					
+				case "2" :
+					if(count>0){
+					deleteVip(index);
+					}else{
+						System.out.println("삭제할 vip고객이 존재하지 않습니다");
+					}
+					break;
+				
+				case "3" :
+					if(count>0){
+						viplist();
+						}else{
+							System.out.println("vip고객이 없습니다");
+						}
+					break;
+					
+				default : 
+					System.out.println("입력이 잘못되었습니다. 처음부터 다시 해주시기바랍니다.");
+				}
 				break;
 				
 			case 'q' :
@@ -127,11 +158,13 @@ public class CustomerManager3 {
 
 
 	public static void insertCustomerData() {
-		custList=insert.add(custList);		
+		custList=insert.add(custList);
+		index++;
 	}
 	
 	public static void viplist(){
 		vipCustomer v;
+		System.out.println("------vip고객 리스트------");
 		for(int i=0;i<vList.size();i++){
 			v=vList.get(i);
 			System.out.println("이름 : "+v.getName());
@@ -198,6 +231,10 @@ public class CustomerManager3 {
 		vipCustomer vcust = new vipCustomer(cust.getName(),cust.getGender(),cust.getEmail(),cust.getBirthYear());
 		vcust.setVip();
 		vList.add(vcust);
+	}
+	public static void deleteVip(int index){
+		vList.get(index).deleteVip();
+		vList.remove(index);
 	}
 
 	// index �쐞移섏쓽 怨좉컼 �젙蹂대�� �닔�젙�빀�땲�떎.
