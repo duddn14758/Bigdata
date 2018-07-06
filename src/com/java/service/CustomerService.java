@@ -11,13 +11,17 @@ public class CustomerService {
 	static ArrayList<Customer> custList = new ArrayList<>();
 	static ArrayList<vipCustomer> vList=new ArrayList<>();
 
-
 	static int index = -1;
 	static int vindex=0;
 
 	static int count = 0;// custList.size()
 
 	static Scanner scan = new Scanner(System.in);
+	
+	private insert i=new insert();
+	private update u=new update();
+	private print p=new print();
+	static private vipService v=new vipService();
 
 	public static void main(String[] args) {
 
@@ -118,7 +122,7 @@ public class CustomerService {
 				
 				case "1" : 
 					if(count>0){
-						vipService.MakeVip(custList, vList, index);
+						vList=vipService.MakeVip(custList, vList, index);
 					}else{
 						System.out.println("vip등록할 고객이 존재하지 않습니다");
 					}
@@ -126,7 +130,7 @@ public class CustomerService {
 					
 				case "2" :
 					if(count>0){
-						vipService.deleteVip(vList, index);
+						vList=vipService.deleteVip(vList, index);
 					}else{
 						System.out.println("삭제할 vip고객이 존재하지 않습니다");
 					}
