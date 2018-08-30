@@ -10,6 +10,7 @@ public class Customercontroller {
 	}
 	public void run(String name){
 		System.out.println("Controller");
+		System.out.println("Hello");
 	}
 
 }
